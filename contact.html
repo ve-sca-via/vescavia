@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Vescavia Creative Digital Agency</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Get in touch with Vescavia to start your next creative project. We're ready to transform your brand with bold ideas and innovative digital solutions. Contact us today!">
+    <meta name="keywords" content="contact vescavia, creative agency contact, digital agency inquiry, start project">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vescavia.com/contact.html">
+    <meta property="og:title" content="Contact Us - Vescavia Creative Digital Agency">
+    <meta property="og:description" content="Ready to start your next creative project? Get in touch with Vescavia and let's build something amazing together.">
+    <meta property="og:image" content="https://vescavia.com/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://vescavia.com/contact.html">
+    <meta name="twitter:title" content="Contact Us - Vescavia Creative Digital Agency">
+    <meta name="twitter:description" content="Ready to start your next creative project? Get in touch with Vescavia.">
+    <meta name="twitter:image" content="https://vescavia.com/images/twitter-card.jpg">
+    
+    <link rel="stylesheet" href="style.min.css">
+    <style>
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .contact-form {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+
+        .form-progress {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .form-progress::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--color-border);
+            z-index: 0;
+        }
+
+        .progress-step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--color-dark);
+            border: 2px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active {
+            background: var(--color-electric-purple);
+            border-color: var(--color-electric-purple);
+            color: white;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-dark);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            color: var(--color-text);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-electric-purple);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .prev-btn,
+        .next-btn,
+        .submit-btn {
+            flex: 1;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .prev-btn {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+        }
+
+        .prev-btn:hover {
+            background: var(--color-border);
+        }
+
+        .next-btn,
+        .submit-btn {
+            background: linear-gradient(135deg, var(--color-electric-purple), var(--color-hot-pink));
+            color: white;
+        }
+
+        .next-btn:hover,
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+        }
+
+        .contact-info {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text {
+            color: var(--color-text-dim);
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">VESCAVIA</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh;">
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="videos/sv1.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1 class="hero-title" style="font-size: clamp(3rem, 10vw, 7rem);">
+                LET'S TALK
+            </h1>
+            <p class="hero-subtitle">
+                Ready to turn your vision into reality?
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section style="padding: 4rem 2rem; background: var(--color-darker);">
+        <div class="contact-container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-progress">
+                    <div class="progress-step active">1</div>
+                    <div class="progress-step">2</div>
+                    <div class="progress-step">3</div>
+                </div>
+
+                <!-- Step 1: Personal Info -->
+                <div class="form-step active">
+                    <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 2rem;">Tell us about yourself</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" placeholder="Your Company">
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" class="next-btn">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Project Details -->
+                <div class="form-step">
+                    <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 2rem;">What do you need?</h3>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Interested In *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="brand-management">Brand Management</option>
+                            <option value="video-editing">Video Editing</option>
+                            <option value="ad-creation">Ad Creation</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="multiple">Multiple Services</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget Range *</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Select your budget</option>
+                            <option value="under-5k">Under $5,000</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="10k-25k">$10,000 - $25,000</option>
+                            <option value="25k-50k">$25,000 - $50,000</option>
+                            <option value="over-50k">$50,000+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeline">Project Timeline *</label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="">Select timeline</option>
+                            <option value="urgent">ASAP (Within 2 weeks)</option>
+                            <option value="1-month">1 Month</option>
+                            <option value="2-3-months">2-3 Months</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" class="prev-btn">← Back</button>
+                        <button type="button" class="next-btn">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Project Description -->
+                <div class="form-step">
+                    <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 2rem;">Tell us about your project</h3>
+                    
+                    <div class="form-group">
+                        <label for="message">Project Description *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your project goals, target audience, and any specific requirements..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="referral">How did you hear about us?</label>
+                        <select id="referral" name="referral">
+                            <option value="">Select an option</option>
+                            <option value="google">Google Search</option>
+                            <option value="social">Social Media</option>
+                            <option value="referral">Friend/Colleague Referral</option>
+                            <option value="previous-client">Previous Client</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" class="prev-btn">← Back</button>
+                        <button type="submit" class="submit-btn">Submit →</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-icon">📧</div>
+                    <div class="info-title">Email Us</div>
+                    <div class="info-text">hello@vescavia.com</div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📱</div>
+                    <div class="info-title">Call Us</div>
+                    <div class="info-text">+1 (555) 123-4567</div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <div class="info-title">Visit Us</div>
+                    <div class="info-text">San Francisco, CA</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">VESCAVIA</div>
+                <p>
+                    We're a creative digital agency that turns bold ideas into unforgettable digital experiences. Let's build something amazing together.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook">📘</a>
+                    <a href="#" class="social-link" aria-label="Instagram">📸</a>
+                    <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="work.html">Our Work</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services/brandManagement.html">Brand Management</a></li>
+                    <li><a href="services/videoEditing.html">Video Editing</a></li>
+                    <li><a href="services/addCreation.html">Ad Creation</a></li>
+                    <li><a href="services/webDevelopment.html">Web Development</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="copyright.html">Copyright Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Vescavia. All rights reserved. Crafted with passion 💜</p>
+        </div>
+    </footer>
+
+    <script src="script.min.js"></script>
+</body>
+</html>

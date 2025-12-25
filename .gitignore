@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Minified files (generated, don't commit)
+*.min.css
+*.min.js
+
+# OS files
+.DS_Store
+Thumbs.db
