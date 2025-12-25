@@ -1,10 +1,12 @@
 # Dependencies
 node_modules/
-package-lock.json
 
-# Minified files (generated, don't commit)
+# Minified files (generated during build)
 *.min.css
 *.min.js
+
+# Vercel
+.vercel
 
 # OS files
 .DS_Store
