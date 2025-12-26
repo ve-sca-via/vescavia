@@ -1,9 +1,8 @@
 # Dependencies
 node_modules/
 
-# Minified files (generated during build)
-*.min.css
-*.min.js
+# Original source files (not needed on production)
+videos-original/
 
 # Vercel
 .vercel
