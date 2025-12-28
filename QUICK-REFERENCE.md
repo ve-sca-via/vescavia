@@ -12,11 +12,18 @@
 
 ## 🚀 Commands
 
-### Optimize Everything
+### Build Locally (Before Deployment)
+```bash
+npm run build:local
+```
+Runs: Image optimization → Video optimization → CSS/JS minification
+**Use this before pushing to Git!**
+
+### Build (Deployment Safe)
 ```bash
 npm run build
 ```
-Runs: Image optimization → Video optimization → CSS/JS minification
+Automatically detects CI/deployment and skips optimization (uses pre-built assets)
 
 ### Optimize Images Only (Skip Videos)
 ```bash
@@ -67,11 +74,13 @@ your-project/
 
 ### Before Deployment:
 ```bash
-npm run build
+npm run build:local
 git add .
 git commit -m "Update: optimized assets"
 git push
 ```
+
+**Important**: Always use `npm run build:local` on your machine, NOT `npm run build` (which is for CI only).
 
 ## ⚡ Why This Matters
 

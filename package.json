@@ -2,12 +2,13 @@
   "name": "vescavia-website",
   "version": "1.0.0",
   "description": "Vescavia Creative Digital Agency Website",
+  "private": true,
   "scripts": {
     "optimize": "node optimize.js",
     "optimize:images": "node optimize.js --images",
     "optimize:videos": "node optimize.js --videos",
     "minify": "node minify.js",
-    "build": "npm run optimize && npm run minify"
+    "build:local": "npm run optimize && npm run minify"
   },
   "devDependencies": {
     "clean-css": "^5.3.3",
