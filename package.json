@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "Vescavia Creative Digital Agency Website",
   "scripts": {
+    "optimize": "node optimize.js",
+    "optimize:images": "node optimize.js --images",
+    "optimize:videos": "node optimize.js --videos",
     "minify": "node minify.js",
-    "build": "npm run minify"
+    "build": "npm run optimize && npm run minify"
   },
   "devDependencies": {
     "clean-css": "^5.3.3",
-    "terser": "^5.27.0"
+    "terser": "^5.27.0",
+    "sharp": "^0.33.2"
   }
 }

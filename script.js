@@ -48,6 +48,22 @@ function animateCursor() {
 
 animateCursor();
 
+// Navbar transparency on scroll
+const navbar = document.querySelector('.navbar');
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > 100) {
+        navbar.classList.add('navbar-scrolled');
+    } else {
+        navbar.classList.remove('navbar-scrolled');
+    }
+    
+    lastScrollY = currentScrollY;
+});
+
 // Cursor hover effects
 document.querySelectorAll('a, button, .service-card').forEach(el => {
     el.addEventListener('mouseenter', () => {
@@ -254,17 +270,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
-});
-
-// Add scroll-triggered navbar background
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-        navbar.style.backdropFilter = 'blur(20px)';
-    } else {
-        navbar.style.background = 'linear-gradient(180deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0) 100%)';
-        navbar.style.backdropFilter = 'blur(10px)';
-    }
 });
