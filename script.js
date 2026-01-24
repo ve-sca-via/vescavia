@@ -134,6 +134,40 @@ const observer = new IntersectionObserver((entries) => {
 const fadeElements = document.querySelectorAll('.fade-in');
 fadeElements.forEach(el => observer.observe(el));
 
+// Mega Dropdown Image Switching
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdownLinks = document.querySelectorAll('.dropdown-links a');
+    const dropdownImages = document.querySelectorAll('.dropdown-image img');
+    const dropdownDescription = document.querySelector('.dropdown-description');
+    
+    dropdownLinks.forEach((link, index) => {
+        link.addEventListener('mouseenter', () => {
+            // Hide all images
+            dropdownImages.forEach(img => img.style.opacity = '0');
+            // Show the corresponding image
+            if (dropdownImages[index]) {
+                dropdownImages[index].style.opacity = '1';
+            }
+            // Update description text
+            const description = link.getAttribute('data-description');
+            if (dropdownDescription && description) {
+                dropdownDescription.textContent = description;
+            }
+        });
+    });
+    
+    // Show first image and description by default
+    if (dropdownImages[0]) {
+        dropdownImages[0].style.opacity = '1';
+    }
+    if (dropdownDescription && dropdownLinks[0]) {
+        const firstDescription = dropdownLinks[0].getAttribute('data-description');
+        if (firstDescription) {
+            dropdownDescription.textContent = firstDescription;
+        }
+    }
+});
+
 // Stats Counter Animation
 const statNumbers = document.querySelectorAll('.stat-number');
 
